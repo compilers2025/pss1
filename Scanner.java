@@ -1,8 +1,8 @@
 import java.util.Arrays;
 import java.util.List;
 import java.io.IOException;
-import java.io.BufferedReader;
-import java.io.FileReader;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 enum TokenType {
     NUMBER, TERM, INVALID
@@ -75,15 +75,23 @@ public class Scanner {
     }
 
     public static void main(String[] args) {
+        if (args.length < 1) {
+            System.err.println("Usage: java Scanner <file-path>");
+            System.exit(1);
+        }
+
+        String filePath = args[0];
+
         try {
-            String filePath = args[0];
-            Scanner scanner = new Scanner(filePath);
+            String content = new String(Files.readAllBytes(Paths.get(filePath))); // ✅ Read file content
+            Scanner scanner = new Scanner(content); // ✅ Pass the content, not the file path
+
             Token token;
             while ((token = scanner.getToken()) != null) {
                 System.out.println(token.toString());
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException e) { // ✅ Catch file reading errors
+            System.err.println("Error reading file: " + e.getMessage());
         }
     }
 }

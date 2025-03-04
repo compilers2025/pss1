@@ -26,13 +26,12 @@ digit        ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" ;
 ```
 
 ### **Expected Token Output:**
-```json
-[
-  { "type": "number", "value": "3" },
-  { "type": "term", "value": "+" },
-  { "type": "number", "value": "5" },
-  { "type": "term", "value": "-" },
-  { "type": "invalid", "value": "x" },
-  { "type": "term", "value": "=" },
-  { "type": "number", "value": "7" }
-]  
+```
+
+number: "3"
+term: "+"
+number: "5"
+term: "-"
+invalid: "x"
+term: "="
+number: "7"

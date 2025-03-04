@@ -71,7 +71,7 @@ public class Scanner {
             return new Token(TokenType.TERM, String.valueOf(next()));
         }
 
-        return new Token(TokenType.ILLEGAL, String.valueOf(next()));
+        return new Token(TokenType.INVALID, String.valueOf(next()));
     }
 
     public static void main(String[] args) {

@@ -64,14 +64,14 @@ public class Scanner {
         if (currentChar == '\0') return null; // End of input
 
         if (isDigit(currentChar)) {
-            return new Token(TokenType.NUMBER, String.valueOf(next())); // Consume digit
+            return new Token(TokenType.NUMBER, String.valueOf(next()));
         }
 
         if (isSymbol(currentChar)) {
-            return new Token(TokenType.SYMBOL, String.valueOf(next())); // Consume symbol
+            return new Token(TokenType.TERM, String.valueOf(next()));
         }
 
-        return new Token(TokenType.ILLEGAL, String.valueOf(next())); // Consume invalid character
+        return new Token(TokenType.ILLEGAL, String.valueOf(next()));
     }
 
     public static void main(String[] args) {

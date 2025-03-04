@@ -1,5 +1,8 @@
 import java.util.Arrays;
 import java.util.List;
+import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.FileReader;
 
 enum TokenType {
     NUMBER, TERM, INVALID
@@ -69,5 +72,18 @@ public class Scanner {
         }
 
         return new Token(TokenType.ILLEGAL, String.valueOf(next())); // Consume invalid character
+    }
+
+    public static void main(String[] args) {
+        try {
+            String filePath = args[0];
+            Scanner scanner = new Scanner(filePath);
+            Token token;
+            while ((token = scanner.getToken()) != null) {
+                System.out.println(token.toString());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -3,7 +3,7 @@ JAVAC = "javac"
 JAVA = 'java'
 SOURCE="Scanner"                   
 COMPILER = "Scanner"
-INP0 = "./compiler.txt"
+INP0 = "./input.txt"
 OUT0 = "./output.txt"     
 DIFF = "/usr/bin/diff"
 
